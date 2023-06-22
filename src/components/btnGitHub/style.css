@@ -1,0 +1,20 @@
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-outline img {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-outline:hover {
+  transform: scale(1.1);
+}
