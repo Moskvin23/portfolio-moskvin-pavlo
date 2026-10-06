@@ -5,19 +5,19 @@ const Projects = () => {
   return (
     <main className="section">
       <div className="container">
-        <h2 className="title-1">Projects</h2>
+        <p className="eyebrow">Work</p>
+        <h1 className="title-1">Selected projects</h1>
         <ul className="projects">
-          {projects.map((project, index) => {
-            return (
-              <Project
-                key={index}
-                title={project.title}
-                img={project.img}
-                index={index}
-                description={project.description}
-              />
-            )
-          })}
+          {projects.map((project, index) => (
+            <Project
+              key={project.title}
+              title={project.title}
+              img={project.img}
+              index={index}
+              skills={project.skills}
+              description={project.description}
+            />
+          ))}
         </ul>
       </div>
     </main>

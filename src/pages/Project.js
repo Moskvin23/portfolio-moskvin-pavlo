@@ -1,48 +1,66 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import BtnGitHub from "../components/btnGitHub/BtnGitHub"
+import Preview from "../components/preview/Preview"
 import { projects } from "./../helpers/projectsList"
 
 const Project = () => {
   const { id } = useParams()
   const project = projects[id]
 
+  if (!project) {
+    return (
+      <main className="section">
+        <div className="container">
+          <h1 className="title-1">Project not found</h1>
+          <Link to="/projects" className="btn">
+            Back to projects
+          </Link>
+        </div>
+      </main>
+    )
+  }
+
+  const nextId = (Number(id) + 1) % projects.length
+  const next = projects[nextId]
+
   return (
     <main className="section">
       <div className="container">
-        <div className="project-details">
-          <h1 className="title-1">{project.title}</h1>
+        <Link to="/projects" className="back-link">
+          ← All projects
+        </Link>
+        <div className="case">
+          <aside className="case__side">
+            <p className="eyebrow">Case study · {String(Number(id) + 1).padStart(2, "0")}</p>
+            <h1 className="case__title">{project.title}</h1>
+            {project.description && <p className="lead">{project.description}</p>}
 
-          <img src={project.imgBig} alt={project.title} className="project-details__cover" />
-          <p>{project.description}</p>
-          <div className="project-details__desc">
-            <p></p>
-            <p style={{ lineHeight: "1.7" }}>Skills: {project.skills}</p>
+            <h3 className="case__label">Stack</h3>
+            <ul className="tags">
+              {project.skills.split(",").map((s) => (
+                <li className="tag" key={s}>
+                  {s.trim()}
+                </li>
+              ))}
+            </ul>
+
+            <div className="case__actions">
+              {project.demoVersion && (
+                <a href={project.demoVersion} className="btn" target="_blank" rel="noopener noreferrer">
+                  Open live site ↗
+                </a>
+              )}
+              {project.gitHubLink && <BtnGitHub link={project.gitHubLink} />}
+            </div>
+
+            <Link to={`/project/${nextId}`} className="case__next">
+              Next project <strong>{next.title} →</strong>
+            </Link>
+          </aside>
+
+          <div className="case__main">
+            <Preview key={id} project={project} />
           </div>
-
-          {project.gitHubLink && <BtnGitHub link={project.gitHubLink} target="_blank" />}
-          {project.demoVersion && (
-            <a
-              style={{
-                color: "#5c62ec",
-                marginTop: "20px",
-                fontSize: "24px",
-                textDecoration: "none",
-                transition: "color 0.3s ease-in-out, transform 0.4s ease-in-out",
-              }}
-              href={project.demoVersion}
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseOver={(e) => {
-                e.target.style.color = "#3d47af"
-                e.target.style.transform = "scale(1.12)"
-              }}
-              onMouseOut={(e) => {
-                e.target.style.color = "#5c62ec"
-                e.target.style.transform = "scale(1)"
-              }}>
-              Demo Version
-            </a>
-          )}
         </div>
       </div>
     </main>

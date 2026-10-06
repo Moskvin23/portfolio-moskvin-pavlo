@@ -1,24 +1,107 @@
-.project {
-  max-width: 370px;
-  background-color: var(--project-card-bg);
-  box-shadow: var(--box-shadow);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-  transform: scale(1);
+.project__link {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: center;
+  gap: 48px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  color: inherit;
 }
-.project:hover {
-  transform: scale(1.03);
+
+.project:nth-child(even) .project__info {
+  order: 2;
 }
-.project__img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+
+.project__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.project__num {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .project__title {
-  padding: 25px 20px 25px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 700;
-  font-size: 24px;
-  line-height: 1.3;
-  color: var(--project-card-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.project__desc {
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.project__more {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  transition: color 0.2s;
+}
+
+.project__link:hover .project__more {
+  color: var(--accent);
+}
+
+.project__media {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease;
+}
+
+.project__link:hover .project__media {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.project__bar {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.project__bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.project__bar i:nth-child(2) {
+  background: #febc2e;
+}
+
+.project__bar i:nth-child(3) {
+  background: #28c840;
+}
+
+.project__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 860px) {
+  .project__link {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .project:nth-child(even) .project__info {
+    order: 0;
+  }
 }

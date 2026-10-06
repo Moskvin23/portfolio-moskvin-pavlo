@@ -1,11 +1,9 @@
-import gitHubIcon from "./gitHub-black.svg"
-import "./style.css"
+import { BsGithub } from "react-icons/bs"
 
 const BtnGitHub = ({ link }) => {
   return (
-    <a href={link} target="_blank" rel="noreferrer" className="btn-outline">
-      <img src={gitHubIcon} alt="" />
-      GitHub repo
+    <a href={link} target="_blank" rel="noreferrer" className="btn btn--ghost">
+      <BsGithub /> GitHub repo
     </a>
   )
 }
