@@ -18,6 +18,8 @@ import shotWed1 from "./../img/shots/wedding-1.png"
 import shotAly1 from "./../img/shots/alyona-1.png"
 import shotTat1 from "./../img/shots/tattoo-1.png"
 
+import shotSaas1 from "./../img/shots/saas-1.png"
+
 const projects = [
   {
     title: "Alyona Tkachenko — Portfolio",
@@ -75,6 +77,14 @@ const projects = [
     skills: "Tailwind CSS, React-Typed, Responsive website from scratch",
     gitHubLink: "https://github.com/Moskvin23/practice-with-tailwind",
     demoVersion: "https://practice-tailwind-css.netlify.app/",
+  },
+  {
+    title: "Lumora — SaaS Landing",
+    description: "Landing page for a fictional AI customer-support SaaS: hero, product preview, pricing and customer sections.",
+    skills: "Next.js, React",
+    img: shotSaas1,
+    imgBig: shotSaas1,
+    demoVersion: "https://sass-landing-ai.netlify.app/",
   },
 ]
 
