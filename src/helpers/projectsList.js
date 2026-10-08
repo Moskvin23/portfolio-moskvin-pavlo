@@ -20,7 +20,25 @@ import shotTat1 from "./../img/shots/tattoo-1.png"
 
 import shotSaas1 from "./../img/shots/saas-1.png"
 
+import shotBright1 from "./../img/shots/brightsmile-1.png"
+
 const projects = [
+  {
+    title: "Brightsmile — Dentist Booking",
+    description: "Booking platform to find a dentist, compare prices and availability, and reserve a time slot.",
+    skills: "Next.js, React",
+    img: shotBright1,
+    imgBig: shotBright1,
+    demoVersion: "https://brightsmileee.netlify.app/",
+    pages: [
+      { label: "Home", path: "/" },
+      { label: "Search", path: "/search/?city=austin" },
+      { label: "Clinic", path: "/clinic/aus-18/" },
+      { label: "Compare", path: "/compare/" },
+      { label: "For clinics", path: "/for-clinics/" },
+      { label: "My bookings", path: "/my-bookings/" },
+    ],
+  },
   {
     title: "Alyona Tkachenko — Portfolio",
     description: "Portfolio website for a UI/UX designer, built for a client. Implemented from a Figma design.",

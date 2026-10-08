@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: flex-start;
   gap: 12px;
   margin-bottom: 16px;
 }
@@ -95,4 +96,10 @@
 .preview__shot img {
   display: block;
   width: 100%;
+}
+
+.seg--pages {
+  flex-wrap: wrap;
+  border-radius: 20px;
+  margin-right: auto;
 }
