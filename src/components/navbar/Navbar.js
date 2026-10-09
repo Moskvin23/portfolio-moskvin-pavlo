@@ -1,20 +1,23 @@
 import { NavLink } from "react-router-dom"
 import BtnDarkMode from "../btnDarkMode/BtnDarkMode"
+import { useLang } from "../../i18n/LangContext"
 import "./style.css"
 
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contacts", label: "Contacts" },
-]
-
 const Navbar = () => {
+  const { t, lang, setLang } = useLang()
+
+  const links = [
+    { to: "/", label: t.nav.home },
+    { to: "/projects", label: t.nav.projects },
+    { to: "/contacts", label: t.nav.contacts },
+  ]
+
   return (
     <nav className="nav">
       <div className="container nav-row">
         <NavLink to="/" className="logo">
           <span className="logo__mark">PM</span>
-          <span className="logo__text">Pavlo Moskvin</span>
+          <span className="logo__text">{t.name}</span>
         </NavLink>
 
         <ul className="nav-list">
@@ -29,6 +32,18 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
+        <div className="lang" role="group" aria-label="Language">
+          {["en", "uk"].map((code) => (
+            <button
+              key={code}
+              className={lang === code ? "lang__btn lang__btn--on" : "lang__btn"}
+              onClick={() => setLang(code)}
+              aria-pressed={lang === code}>
+              {code === "en" ? "EN" : "УК"}
+            </button>
+          ))}
+        </div>
 
         <BtnDarkMode />
       </div>

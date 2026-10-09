@@ -1,15 +1,6 @@
 const profile = {
-  name: "Pavlo Moskvin",
-  role: "Web Developer",
-  location: "Lviv, Ukraine",
-  about:
-    "Web developer with over 3 years of experience building web applications with modern libraries and frameworks. I focus on scalability, performance, typing and clean code, and I'm growing towards Fullstack development in large, ambitious projects.",
   cv: "/Moskvin-Pavlo-CV.pdf",
-  stats: [
-    { value: "3+", label: "years of experience" },
-    { value: "Mapbox", label: "geodata & real-time maps" },
-    { value: "TS", label: "typed, scalable code" },
-  ],
+  statValues: ["3+", "Mapbox", "TS"],
   skills: [
     {
       group: "Frontend",
@@ -23,29 +14,8 @@ const profile = {
       items: ["HTML5", "CSS3", "Tailwind CSS", "Redux Toolkit", "Node.js", "Figma"],
     },
   ],
-  experience: [
-    {
-      company: "Feodal",
-      title: "Frontend Engineer",
-      period: "May 2023 — Present",
-      points: [
-        "Integrated interactive Mapbox GL maps: geodata visualization, markers and advanced geolocation features.",
-        "Built components for editing and displaying geographic objects (polygons) with high accuracy and usability.",
-        "Developed real-time equipment tracking modules driven by API data and rendered on the map.",
-        "Optimized performance for large datasets — faster rendering, request optimization and data caching.",
-        "Introduced TypeScript, reducing runtime errors and improving maintainability.",
-        "Took part in architecture and technology decisions; worked closely with backend on API integration.",
-      ],
-    },
-  ],
-  education: [
-    { place: "SoftServe IT Academy", title: "Frontend Developer Intern", period: "2021 — 2022" },
-    {
-      place: "Lviv Polytechnic National University",
-      title: "Mechanical Engineering, Master's Degree",
-      period: "2013 — 2018",
-    },
-  ],
+  experience: ["Feodal"],
+  education: ["SoftServe IT Academy", "Lviv Polytechnic National University"],
   contacts: {
     email: "23moskvin@gmail.com",
     phone: "+380508613233",

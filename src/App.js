@@ -10,9 +10,11 @@ import Project from "./pages/Project"
 import Contacts from "./pages/Contacts"
 
 import ScrollToTop from "./utils/scrollToTop"
+import { LangProvider } from "./i18n/LangContext"
 
 function App() {
   return (
+    <LangProvider>
     <div className="App">
       <Router>
         <ScrollToTop />
@@ -26,6 +28,7 @@ function App() {
         <Footer />
       </Router>
     </div>
+    </LangProvider>
   )
 }
 

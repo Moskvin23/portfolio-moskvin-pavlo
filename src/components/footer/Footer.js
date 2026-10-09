@@ -1,6 +1,7 @@
 import "./style.css"
 import { BsGithub, BsLinkedin, BsTelegram, BsTwitter } from "react-icons/bs"
 import { profile } from "../../helpers/profile"
+import { useLang } from "../../i18n/LangContext"
 
 const { contacts } = profile
 
@@ -12,11 +13,13 @@ const links = [
 ]
 
 const Footer = () => {
+  const { t } = useLang()
+
   return (
     <footer className="footer">
       <div className="container footer__wrapper">
         <p className="footer__copy">
-          © {new Date().getFullYear()} {profile.name}
+          © {new Date().getFullYear()} {t.name}
         </p>
         <ul className="social">
           {links.map((l) => (

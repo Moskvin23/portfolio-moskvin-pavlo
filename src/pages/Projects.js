@@ -1,12 +1,15 @@
 import Project from "../components/project/Project"
 import { projects } from "./../helpers/projectsList"
+import { useLang } from "../i18n/LangContext"
 
 const Projects = () => {
+  const { t, projectText } = useLang()
+
   return (
     <main className="section">
       <div className="container">
-        <p className="eyebrow">Work</p>
-        <h1 className="title-1">Selected projects</h1>
+        <p className="eyebrow">{t.projects.work}</p>
+        <h1 className="title-1">{t.projects.selected}</h1>
         <ul className="projects">
           {projects.map((project, index) => (
             <Project
@@ -15,7 +18,7 @@ const Projects = () => {
               img={project.img}
               index={index}
               skills={project.skills}
-              description={project.description}
+              description={projectText(project)}
             />
           ))}
         </ul>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { useLang } from "../../i18n/LangContext"
 import "./style.css"
 
 const devices = {
@@ -8,6 +9,7 @@ const devices = {
 }
 
 const Preview = ({ project }) => {
+  const { t } = useLang()
   const hasLive = Boolean(project.demoVersion)
   const [device, setDevice] = useState("desktop")
   const pages = project.pages || []
@@ -36,7 +38,7 @@ const Preview = ({ project }) => {
           <div className="seg seg--pages">
             {pages.map((pg, i) => (
               <button key={pg.path} className={page === i ? "is-on" : ""} onClick={() => setPage(i)}>
-                {pg.label}
+                {t.preview.pages[pg.label] || pg.label}
               </button>
             ))}
           </div>
@@ -46,7 +48,7 @@ const Preview = ({ project }) => {
             .filter(([key]) => !(project.noMobile && key === "mobile"))
             .map(([key, v]) => (
             <button key={key} className={device === key ? "is-on" : ""} onClick={() => setDevice(key)}>
-              {v.label}
+              {t.preview[v.label]}
             </button>
           ))}
         </div>

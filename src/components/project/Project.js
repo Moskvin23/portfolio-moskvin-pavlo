@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
+import { useLang } from "../../i18n/LangContext"
 import "./style.css"
 
 const Project = ({ title, img, index, skills, description }) => {
+  const { t } = useLang()
   const tags = skills ? skills.split(",").slice(0, 4) : []
 
   return (
@@ -18,7 +20,7 @@ const Project = ({ title, img, index, skills, description }) => {
               </li>
             ))}
           </ul>
-          <span className="project__more">View case study →</span>
+          <span className="project__more">{t.projects.viewCase}</span>
         </div>
         <div className="project__media">
           <div className="project__bar">
