@@ -29,7 +29,9 @@ const Preview = ({ project }) => {
   const d = devices[device]
   const scale = width ? Math.min(1, (width - 32) / d.width) : 1
   const shot = project.imgBig
-  const liveUrl = pages.length ? new URL(pages[page].path, project.demoVersion).href : project.demoVersion
+  const liveUrl = pages.length
+    ? new URL(pages[page].path, project.demoVersion).href
+    : project.previewUrl || project.demoVersion
 
   return (
     <div className="preview">

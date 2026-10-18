@@ -22,7 +22,18 @@ import shotSaas1 from "./../img/shots/saas-1.png"
 
 import shotBright1 from "./../img/shots/brightsmile-1.png"
 
+import shotMotoron1 from "./../img/shots/motoron-1.png"
+
 const projects = [
+  {
+    title: "MotorON — Auto Service",
+    description: "Bilingual (UA / EN) website for a car repair shop: services, repair examples, booking form, FAQ and map.",
+    skills: "Next.js, React",
+    img: shotMotoron1,
+    imgBig: shotMotoron1,
+    demoVersion: "https://motoron.netlify.app/",
+    previewUrl: "https://motoron.netlify.app/?lang=en",
+  },
   {
     title: "Brightsmile — Dentist Booking",
     description: "Booking platform to find a dentist, compare prices and availability, and reserve a time slot.",
