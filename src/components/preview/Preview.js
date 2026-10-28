@@ -12,7 +12,7 @@ const Preview = ({ project }) => {
   const { t } = useLang()
   const compare = project.compare
   const [version, setVersion] = useState("after")
-  const hasLive = Boolean(project.demoVersion) && !compare
+  const hasLive = Boolean(project.demoVersion)
   const [device, setDevice] = useState("desktop")
   const pages = project.pages || []
   const [page, setPage] = useState(0)
@@ -30,13 +30,14 @@ const Preview = ({ project }) => {
 
   const d = devices[device]
   const scale = width ? Math.min(1, (width - 32) / d.width) : 1
-  const shot = compare ? compare[version] : project.imgBig
-  const barLabel = compare
-    ? (version === "before" ? compare.beforeUrl : project.demoVersion).replace("https://", "")
-    : project.title
-  const liveUrl = pages.length
-    ? new URL(pages[page].path, project.demoVersion).href
-    : project.previewUrl || project.demoVersion
+  const shot = project.imgBig
+  const barLabel = project.title
+  const liveUrl =
+    compare && version === "before"
+      ? compare.beforeUrl
+      : pages.length
+        ? new URL(pages[page].path, project.demoVersion).href
+        : project.previewUrl || project.demoVersion
 
   return (
     <div className="preview">

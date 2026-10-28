@@ -34,6 +34,7 @@ const projects = [
     img: shotOlimp1,
     imgBig: shotOlimp1,
     demoVersion: "https://rent-olimp-car.netlify.app/",
+    compare: { beforeUrl: "https://olimp-rent.com/" },
   },
   {
     title: "MotorON — Auto Service",
