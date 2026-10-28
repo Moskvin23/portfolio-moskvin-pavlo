@@ -70,6 +70,8 @@ const translations = {
       Desktop: "Desktop",
       Tablet: "Tablet",
       Mobile: "Mobile",
+      before: "Before",
+      after: "After",
       pages: {},
     },
     contacts: {
@@ -153,6 +155,8 @@ const translations = {
       Desktop: "Десктоп",
       Tablet: "Планшет",
       Mobile: "Мобільний",
+      before: "До",
+      after: "Після",
       pages: {
         Home: "Головна",
         Search: "Пошук",
@@ -176,6 +180,8 @@ const translations = {
 
 const projectDescriptions = {
   uk: {
+    "Olimp Rent Car — Redesign":
+      "Редизайн на замовлення сайту olimp-rent.com (оренда авто): новий вигляд, каталог автопарку, пошук за датами та сценарій бронювання.",
     "Brightsmile — Dentist Booking":
       "Платформа бронювання: знайти стоматолога, порівняти ціни та доступність і записатися на зручний час.",
     "Alyona Tkachenko — Portfolio":

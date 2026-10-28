@@ -24,7 +24,17 @@ import shotBright1 from "./../img/shots/brightsmile-1.png"
 
 import shotMotoron1 from "./../img/shots/motoron-1.png"
 
+import shotOlimp1 from "./../img/shots/olimp-1.png"
+
 const projects = [
+  {
+    title: "Olimp Rent Car — Redesign",
+    description: "Custom redesign of olimp-rent.com, a car rental service: new look, fleet catalog, date-based search and booking flow.",
+    skills: "Redesign, UI/UX, React",
+    img: shotOlimp1,
+    imgBig: shotOlimp1,
+    demoVersion: "https://rent-olimp-car.netlify.app/",
+  },
   {
     title: "MotorON — Auto Service",
     description: "Bilingual (UA / EN) website for a car repair shop: services, repair examples, booking form, FAQ and map.",

@@ -10,7 +10,9 @@ const devices = {
 
 const Preview = ({ project }) => {
   const { t } = useLang()
-  const hasLive = Boolean(project.demoVersion)
+  const compare = project.compare
+  const [version, setVersion] = useState("after")
+  const hasLive = Boolean(project.demoVersion) && !compare
   const [device, setDevice] = useState("desktop")
   const pages = project.pages || []
   const [page, setPage] = useState(0)
@@ -28,7 +30,10 @@ const Preview = ({ project }) => {
 
   const d = devices[device]
   const scale = width ? Math.min(1, (width - 32) / d.width) : 1
-  const shot = project.imgBig
+  const shot = compare ? compare[version] : project.imgBig
+  const barLabel = compare
+    ? (version === "before" ? compare.beforeUrl : project.demoVersion).replace("https://", "")
+    : project.title
   const liveUrl = pages.length
     ? new URL(pages[page].path, project.demoVersion).href
     : project.previewUrl || project.demoVersion
@@ -36,6 +41,15 @@ const Preview = ({ project }) => {
   return (
     <div className="preview">
       <div className="preview__toolbar">
+        {compare && (
+          <div className="seg seg--pages">
+            {["before", "after"].map((v) => (
+              <button key={v} className={version === v ? "is-on" : ""} onClick={() => setVersion(v)}>
+                {t.preview[v]}
+              </button>
+            ))}
+          </div>
+        )}
         {pages.length > 0 && (
           <div className="seg seg--pages">
             {pages.map((pg, i) => (
@@ -60,7 +74,7 @@ const Preview = ({ project }) => {
         <div className="preview__frame" style={{ width: d.width * scale }}>
           <div className="preview__bar">
             <i /> <i /> <i />
-            <span>{hasLive ? liveUrl.replace("https://", "") : project.title}</span>
+            <span>{hasLive ? liveUrl.replace("https://", "") : barLabel}</span>
           </div>
           {hasLive ? (
             <div style={{ width: d.width * scale, height: d.height * scale, overflow: "hidden" }}>
